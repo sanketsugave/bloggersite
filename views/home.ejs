@@ -1,0 +1,22 @@
+<div class="text-center">
+    <h1 class="display-4 mb-4">📝 Welcome to Your Bloggersite</h1>
+    <% if (!currentUser) { %>
+        <p class="lead text-muted mb-4">Please register or log in.</p>
+        <a href="/user" class="btn btn-success me-2">Register</a>
+        <a href="/login" class="btn btn-primary">Login</a>
+        <% } else { %>
+            <div class="alert alert-success mb-4" role="alert">
+                Logged in as <strong>
+                    <%= currentUser.email %>
+                </strong>
+            </div>
+            <a href="/blog" class="btn btn-warning me-2">✍️ Blogs</a>
+            <form action="/logout" method="POST" class="d-inline">
+                <button type="submit" class="btn btn-outline-danger">Logout</button>
+            </form>
+            <% } %>
+
+                <div class="mt-5">
+                    <p class="text-muted">Built with ❤️ using Node.js, Express, MongoDB, and EJS</p>
+                </div>
+</div>

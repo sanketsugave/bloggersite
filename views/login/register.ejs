@@ -1,0 +1,27 @@
+<div class="container my-5 d-flex justify-content-center">
+    <div class="card shadow p-4" style="min-width: 400px;">
+        <h2 class="text-center mb-4">🧾 Create a New Account</h2>
+
+        <form action="/user" method="POST">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" name="user[email]" id="email" class="form-control" placeholder="example@email.com"
+                    required />
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="user[password]" id="password" class="form-control"
+                    placeholder="Create a strong password" required />
+            </div>
+
+            <div class="d-grid">
+                <button type="submit" class="btn btn-success">Register</button>
+            </div>
+        </form>
+
+        <div class="text-center mt-3">
+            <p class="mb-0">Already have an account? <a href="/login">Login here</a></p>
+        </div>
+    </div>
+</div>

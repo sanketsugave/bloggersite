@@ -1,0 +1,45 @@
+<!-- 🚀 Add Task Form -->
+<div class="card mb-4">
+    <div class="card-body">
+        <h4 class="card-title mb-3">Add a New Blog</h4>
+        <form action="/blog" method="post" class="row g-3">
+            <div class="col-md-8">
+                <input type="text" name="blog[title]" id="title" class="form-control" placeholder="Enter your title"
+                    required>
+            </div>
+            <div class="col-md-8">
+                <input type="text" name="blog[content]" id="content" class="form-control" placeholder="Write your blog"
+                    required>
+            </div>
+
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-success w-100">Add Blog</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<!-- 📋 Show All Tasks -->
+<h3 class="mb-3">Your Blogs</h3>
+
+<div class="list-group">
+    <% for (const Blog of allBlogs) { %>
+        <div class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+                <p>
+                    <%= Blog.title %>
+                </p>
+                <p>
+                    <%= Blog.content %>
+                </p>
+            </div>
+            <div class="d-flex">
+                <a href="/blog/<%= Blog._id %>/edit" class="btn btn-warning btn-sm me-2">Edit</a>
+                <form action="/blog/<%= Blog._id %>?_method=delete" method="post">
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+            </div>
+        </div>
+        <% } %>
+</div>
